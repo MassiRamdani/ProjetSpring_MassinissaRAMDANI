@@ -1,11 +1,9 @@
 
-package com.m2dfs.ApiRestMeteo.controller;
+package com.m2dfs.ApiMeteoVille.controller;
 
 
-import com.fasterxml.jackson.databind.util.JSONPObject;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.json.JSONArray;
@@ -88,6 +86,42 @@ public class MeteoVilleController {
                 }, code).getBody();
         return response;
 
+    }
+
+    @ApiOperation(value = "Get alert weather by one day", response = Iterable.class, tags = "getOneDayAlert")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "success | OK"),
+            @ApiResponse(code = 401, message = "error | Unauthorized"),
+            @ApiResponse(code = 403, message = "error | Forbidden"),
+            @ApiResponse(code = 404, message = "error | Not found"),
+            @ApiResponse(code = 500, message = "error | Internal server ")
+    })
+    @RequestMapping(value = "getOneDayAlert/{nomVille}", method = RequestMethod.GET)
+    public String get1DayWeatherAlerts(@PathVariable String nomVille) {
+        int code = this.getCodeVille(nomVille);
+        String response = restTemplate.exchange("http://dataservice.accuweather.com/alarms/v1/1day/" + code
+                        + "?apikey=" + apiKey,
+                HttpMethod.GET, null, new ParameterizedTypeReference<String>() {
+                }, code).getBody();
+        return response;
+    }
+
+    @ApiOperation(value = "Get alert weather by five day", response = Iterable.class, tags = "getFiveDayAlert")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "success | OK"),
+            @ApiResponse(code = 401, message = "error | Unauthorized"),
+            @ApiResponse(code = 403, message = "error | Forbidden"),
+            @ApiResponse(code = 404, message = "error | Not found"),
+            @ApiResponse(code = 500, message = "error | Internal server ")
+    })
+    @RequestMapping(value = "getFiveDayAlert/{nomVille}", method = RequestMethod.GET)
+    public String get5DayWeatherAlerts(@PathVariable String nomVille) {
+        int code = this.getCodeVille(nomVille);
+        String response = restTemplate.exchange("http://dataservice.accuweather.com/alarms/v1/1day/" + code
+                        + "?apikey=" + apiKey,
+                HttpMethod.GET, null, new ParameterizedTypeReference<String>() {
+                }, code).getBody();
+        return response;
     }
 
     public Integer getCodeVille(String ville) {

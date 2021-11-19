@@ -1,10 +1,10 @@
-package com.m2dfs.ApiRestMeteo;
+package com.m2dfs.ApiMeteoVille;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ApiRestMeteoApplicationTests {
+class ApiMeteoVilleApplicationTests {
 
 	@Test
 	void contextLoads() {
