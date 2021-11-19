@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.m2dfs</groupId>
-    <artifactId>ApiRestMeteo</artifactId>
+    <artifactId>ApiMeteoVille</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>ApiRestMeteo</name>
-    <description>My ApiRestMeteo project</description>
+    <name>ApiMeteoVille</name>
+    <description>My ApiMeteoVille project</description>
     <properties>
         <java.version>11</java.version>
     </properties>

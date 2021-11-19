@@ -1,13 +1,14 @@
-package com.m2dfs.ApiRestAlert;
+package com.m2dfs.ApiRestMeteo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ApiRestAlertApplication {
+
+public class ApiMeteoVilleApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ApiRestAlertApplication.class, args);
+		SpringApplication.run(ApiMeteoVilleApplication.class, args);
 	}
 
 }
