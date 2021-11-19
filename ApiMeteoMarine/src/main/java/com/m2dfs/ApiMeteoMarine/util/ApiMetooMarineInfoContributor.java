@@ -1,4 +1,4 @@
-package com.m2dfs.ApiMeteoVille.util;
+package com.m2dfs.ApiMeteoMarine.util;
 
 
 import org.springframework.boot.actuate.info.Info;
@@ -9,7 +9,7 @@ import java.util.Collections;
 
 
 @Component
-public class ApiMetooVilleInfoContributor implements InfoContributor {
+public class ApiMetooMarineInfoContributor implements InfoContributor {
   @Override
     public void contribute(Info.Builder builder) {
         builder.withDetail("details",

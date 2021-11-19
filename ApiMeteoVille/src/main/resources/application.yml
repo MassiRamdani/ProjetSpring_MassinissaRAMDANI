@@ -3,7 +3,6 @@ server:
   servlet:
     context-path: /api-ville
 
-
 eureka:
   instance:
     leaseRenewalIntervalInSeconds: 1
@@ -19,7 +18,3 @@ eureka:
 spring:
   application:
     name: api-ville
-
-logging:
-  level:
-    com.m2dfs.projetspringMassinissaramdani: DEBUG

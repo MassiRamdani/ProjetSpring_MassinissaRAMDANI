@@ -9,7 +9,7 @@ import java.util.Collections;
 
 
 @Component
-public class ApiMetoVilleInfoContributor implements InfoContributor {
+public class ApiMetooVilleInfoContributor implements InfoContributor {
   @Override
     public void contribute(Info.Builder builder) {
         builder.withDetail("details",
