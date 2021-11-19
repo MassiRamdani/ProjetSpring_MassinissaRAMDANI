@@ -51,6 +51,26 @@ public class MeteoController {
         return response;
     }
 
+    @ApiOperation(value = "Get 1 day of weather forecasts for city", response = Iterable.class, tags = "getOneDayForecasts")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "success | OK"),
+            @ApiResponse(code = 401, message = "error | Unauthorized"),
+            @ApiResponse(code = 403, message = "error | Forbidden"),
+            @ApiResponse(code = 404, message = "error | Not found"),
+            @ApiResponse(code = 500, message = "error | Internal server error (probably exceeded request limit)")
+    })
+    @RequestMapping(value = "getOneDayForecasts/{nomVille}", method = RequestMethod.GET)
+    public String get1DayDailyForecasts(@PathVariable String nomVille) {
+        int code = this.getCodeVille(nomVille);
+        String response = restTemplate.exchange("http://dataservice.accuweather.com/forecasts/v1/daily/1day/" + code +
+                        "?apikey=" + apiKey + "&language=" + lan + "&details=false",
+                HttpMethod.GET, null, new ParameterizedTypeReference<String>() {
+                }, code).getBody();
+        return response;
+
+    }
+
+
     public Integer getCodeVille(String ville) {
         codeville = 0;
         String response = restTemplate.exchange("http://dataservice.accuweather.com/locations/v1/cities/search?apikey=" + apiKey
