@@ -10,10 +10,7 @@ import java.util.Collections;
 
 @Component
 public class ApiMetoVilleInfoContributor implements InfoContributor {
-
-
-
-    @Override
+  @Override
     public void contribute(Info.Builder builder) {
         builder.withDetail("details",
                 Collections.singletonMap("description", "This is City Service, it exposes the data of a city"));
